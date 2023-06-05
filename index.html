@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neural Network Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Neural Network Visualization</h1>
+
+        <div id="data-gen">
+            <h2>Data simulation</h2>
+            <label for="slope-input">Slope:</label>
+            <input id="slope-input" type="number" v-model="slope">
+
+            <label for="intercept-input">Intercept:</label>
+            <input id="intercept-input" type="number" v-model="intercept">
+
+            <label for="size-input">Number of datapoints:</label>
+            <input id="size-input" type="number" v-model="dataSize">
+            
+            <button id="generate-data" @click="generateData">Generate data</button>
+        </div>
+
+        <div id="input-section">
+            <h2>Model parameters</h2>
+            <label for="weight-input">Weight:</label>
+            <input id="weight-input" type="number" v-model="weight">
+
+            <label for="bias-input">Bias:</label>
+            <input id="bias-input" type="number" v-model="bias">
+
+            <label for="epochs-input">Epochs:</label>
+            <input id="epochs-input" type="number" v-model="epochs">
+            
+            <button id="submit-button" @click="startTraining">Start</button>
+        </div>
+        <div>
+            <p>Loss: <span v-text="loss"></span></p>
+        </div>
+        <div id="output-section">
+            <h2>Outputs</h2>
+            <canvas id="myChart" width="800" height="400"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
